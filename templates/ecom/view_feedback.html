@@ -1,0 +1,79 @@
+{% extends 'ecom/admin_base.html' %}
+{% load static %}
+{% block content %}
+
+
+<head>
+    <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+
+    .float{
+	position:fixed;
+	width:70px;
+	height:70px;
+	bottom:00px;
+	right:60px;
+	background-color:white;
+	color:white;
+	border-radius:50px;
+	text-align:center;
+
+}
+
+  </style>
+
+
+
+<div class="container">
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h6 class="panel-title">view of feedback</h6>
+    </div>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<br> <br> <br>
+<h2 style="text-align: center; color: #007bff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 32px; font-weight: bold;  letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Feedback By Customers</h2>
+
+<hr>
+
+      <table class="table table-hover table-bordered" id="dev-table">
+      <thead>
+        <tr>
+
+          <th>Name</th>
+          <th>Email</th>
+          <th>Product Name</th>
+          <th>Rating</th>
+          <th>Feedback</th>
+          <th>Date</th>
+
+        </tr>
+      </thead>
+       {%for f in feedbacks%}
+    <tr>
+
+      <td>{{f.name}}</td>
+      <td>{{f.email}}</td>
+      <td>{{f.product_name}} </td>
+      <td>{{f.rating}}</td>
+      <td>{{f.feedback}}</td>
+      <td>{{f.date}}</td>
+
+    </tr>
+
+      </div>
+          <a class="float">
+{%endfor%}
+
+{% endblock content %}

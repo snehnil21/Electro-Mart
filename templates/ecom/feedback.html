@@ -1,0 +1,165 @@
+
+{% load static %}
+{% block content %}
+<br><br><br>
+<head>
+<style media="screen">
+@import url(
+'https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
+	height: 100vh;
+	background-color: antiquewhite;
+	font-family: 'Poppins', sans-serif;
+
+}
+
+.textup {
+	text-align: center;
+	color: rgb(3, 3, 3);
+	font-weight: 700;
+}
+
+i {
+	margin-right: 3px;
+}
+
+.form-box {
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(36, 67, 40, 0.8);
+	padding: 15px;
+	border-radius: 8px;
+	width: 500px;
+}
+
+form {
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+
+
+label {
+	display: block;
+	margin-bottom: 8px;
+	font-size: 17px;
+	color: rgb(30, 32, 30);
+	font-weight: 600;
+}
+
+input,
+textarea {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 12px;
+	box-sizing: border-box;
+	border-radius: 10px;
+
+}
+
+button {
+	background-color: #161616;
+	color: #fff;
+	padding: 10px;
+	border: none;
+	border-radius: 25px;
+	cursor: pointer;
+	width: 100%;
+	font-size: 15px;
+	transition: .2s linear;
+}
+
+button:hover {
+	background-color: #232423;
+	border: none;
+	transform: translateY(-10px);
+}
+
+h1 {
+	color: rgb(7, 7, 7);
+}
+
+</style>
+<br>
+</head>
+
+<body>
+<div class="container">
+        {% for products, order in data %}
+
+    <article class="card">
+        <div class="card-body">
+            <!-- Your existing tracking information display code here -->
+        </div>
+    </article>
+    <br>
+    <br>
+
+    {% endfor %}
+
+    <!-- Feedback Form -->
+    <div class="container" >
+        <h2 align="center"> Feedback Form</h2>
+        <form id="feedbackForm" action="#" method="post"   onsubmit="submitform()">
+          {% csrf_token %}
+
+	<div class="form-box">
+		<div class="textup">
+			<i class="fa fa-solid fa-clock"></i>
+			Your Feedback is valuable for us!!
+		</div>
+    <br><br>
+
+
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" class="fa fa-solid fa-user" name="name" required>
+
+      <label for="email">Your Email:</label>
+      <input class="fa fa-solid fa-envelope" type="email" id="email" name="email" required>
+
+      <label for="product">Product Name:</label>
+      <input type="text" class="fa-solid fa-phone" id="product" name="product" required>
+
+      <label for="rating">Rating:</label>
+      <select id="rating" name="rating" required>
+          <option value="">Select</option>
+          <option value="5">5 - Excellent</option>
+          <option value="4">4 - Very Good</option>
+          <option value="3">3 - Good</option>
+          <option value="2">2 - Fair</option>
+          <option value="1">1 - Poor</option>
+      </select>
+
+      <label for="feedback">Suggestion:</label>
+      <textarea class="fa-solid fa-face-smile" id="feedback" name="feedback" rows="4"></textarea>
+
+      <button type="submit" id="submit">Submit Feedback</button>
+      <p class="upper-links"><a class="links" href="/homebase">Home</a></p>
+     </form>
+
+</div>
+    </body>
+<br><br><br><br><br>
+
+
+<script>
+  {% if messages %}
+  {% for message in messages %}
+  alert('{{ message }}');
+  {% endfor %}
+  {% endif %}
+  {% if request.method == 'POST' and not form.errors %}
+  alert(' Feedback Form submitted successfully!');
+  {% endif %}
+</script>
+
+<br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock content %}
+

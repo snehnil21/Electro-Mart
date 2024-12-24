@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>About us</title>
+  <style media="screen">
+    .footer{
+      position: fixed;
+    }
+    .box{
+    width: 1500px;
+    height: 600px;
+    padding: 100px;
+}
+
+section{
+    height: auto;
+    padding-top: 40;
+    text-align: center;
+    line-height: 25px;
+}
+section h1{
+    font-style: underline;
+    font-size: 40px;
+    font-family:'Times New Roman', Times, serif;
+    text-align: left;
+    line-height: 1.5;
+    color: rgb(233, 71, 104);
+}
+section h2{
+    color: black;
+    font-family: Verdana;
+    font-style: normal;
+    text-align: left;
+    line-height: 1.5;
+}
+section .box{
+    width: 1000px;
+    height: 600px;
+    padding: 50px;
+}
+section .info{
+    font:lighter;
+    text-align: justify;
+    font-size: 20px;
+    text-indent: 30px;
+    line-height: 1;
+}
+.center
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+}
+th
+{
+    margin-top: 70px;
+    width: 60%;
+    vertical-align: top;
+    border-collapse: collapse;
+}
+tr
+{
+    height: 60%;
+}
+
+.img1 {
+   border-radius: 50%; 
+   width: 300px; 
+   height:300px; 
+   object-fit: cover;
+   border: 2px solid #1d1c1c
+  }
+
+
+  </style>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+
+<body style="background-color:#faf2f5;">
+  {%if request.user.is_authenticated%}
+    {% include "ecom/customer_navbar.html" %}
+  {%else%}
+    {% include "ecom/navbar.html" %}
+  {%endif%}
+  <div class="box">
+    
+    <section class="sec1">
+        <table class="center">
+            <tr>
+                <th>
+                  <h1><i class="fa-solid fa-user"></i> About Us</h1>
+                  <h2 id="name">Mr. Swapnil Lokhande</h2><br>
+                  <h2><i class="fa-solid fa-phone"></i> : +91 9923088908</h2><br>
+                  <div class="box"><h3 class="info">
+                      Krishnai Electronics Established on 21 April 2022,in Vijay Nagar, Nanded, offers a diverse
+                      range of products and services to our esteemed customers. Our well-established presence serves
+                      as a comprehensive destination for locals and visitors alike. We prioritize customer satisfaction
+                      as highly as our offerings, a principle that has propelled us to accumulate a broad and expanding
+                      customer base. <br><br>
+                      In addition to our physical store, we are also launching our e-commerce website, extending our
+                      reach beyond the confines of our physical location. this dual-channel approach allows us to
+                      serve a broader customer base, providing the convenience of online shopping along with the
+                      tactile experience of in-store shopping.
+                      In the coming times, our ambition is to diversify our product range and extend our services to
+                      reach an even wider clientele.
+
+</h3>
+</th>
+<th>
+    <img class="img1"  src="static/images/logo.jpeg" >
+</th>
+</tr>
+</table>
+</section>
+</div>
+
+<br><br><br>
+<script src="{% static 'script.js' %}"></script>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  {% include "ecom/footer.html" %}
+</body>
+
+</html>
